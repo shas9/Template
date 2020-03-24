@@ -22,7 +22,7 @@ struct node
         if(r < idx || l > idx) return this; // Out of range, use this node.
         if(l == r)    // Leaf Node, create new node and return that.
         {
-            node *ret = new node(val, left, right)
+            node *ret = new node(val, left, right);
             ret -> val += v;
             return ret;
             // we first cloned our current node, then added v to the value.
@@ -48,8 +48,7 @@ struct node
             return val;  // return value stored in this node
         }
         ll mid = l + r >> 1;
-        return left -> query(l, mid) +
-               right -> query(mid+1, r);
+        return left -> query(l, mid,i,j) + right -> query(mid+1, r,i,j);
     }
 
 
