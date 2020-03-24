@@ -58,7 +58,7 @@ struct node
 int main()
 {
     root[0] = new node();
-    root[0] -> build(0, n-1);
-    root[1] = root[0] -> update(0, n-1, idx, v);
-    root[0] = root[0] -> update(0, n-1, idx, v);
+    root[0] -> build(1,n);
+    root[1] = root[0] -> update(1,n, idx, v);
+    root[0] = root[0] -> update(1,n, idx, v);
 }
