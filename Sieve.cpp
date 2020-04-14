@@ -31,10 +31,11 @@
 
 #define mod 1000000009
 
-#define maxn 1000002
+
 
 using namespace std;
 
+const ll maxn 1000002
 vector < ll > primes;
 bool vis[maxn+10];
 
