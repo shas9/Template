@@ -1,4 +1,6 @@
-ll fact[300005];
+const ll sz = 300000;
+
+ll fact[sz];
 
 ll power(ll x, ll y, ll p)
 {
@@ -33,7 +35,7 @@ void precalc()
 {
     fact[0] = 1;
 
-    for(ll i = 1; i <= 300000; i++)
+    for(ll i = 1; i <= sz; i++)
     {
         fact[i] = (i * fact[i - 1]) % mod;
     }
