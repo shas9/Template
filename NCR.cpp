@@ -1,6 +1,6 @@
 const ll sz = 300000;
 
-ll fact[sz];
+ll fact[sz + 10];
 
 ll power(ll x, ll y, ll p)
 {
