@@ -27,8 +27,26 @@ ll nCr(ll n, ll r)
 {
     if(r > n) return 0;
 
-    ll z = ((power(fact[r], mod - 2, mod)) * (power(fact[n - r], mod - 2, mod))) % mod;
-    return (fact[n] * z) % mod;
+    if(n < mod)
+    {
+        ll z = ((power(fact[r], mod - 2, mod)) * (power(fact[n - r], mod - 2, mod))) % mod;
+        return (fact[n] * z) % mod;
+    }
+    
+    vector < ll > N, K;
+    
+    while(n) N.push_back(n % mod), n /= mod;
+    
+    while(k) K.push_back(k % mod), k /= mod;
+    
+    ll ret = 1;
+    
+    for(ll i = 0; i < K.size(); i++)
+    {
+        ret = (ret * nCr(N[i],K[i])) % mod;
+    }
+    
+    return ret;
 }
 
 void precalc()
