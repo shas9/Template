@@ -33,6 +33,7 @@ ll nCr(ll n, ll r)
         return (fact[n] * z) % mod;
     }
     
+    /// Lucas Theorem
     vector < ll > N, K;
     
     while(n) N.push_back(n % mod), n /= mod;
