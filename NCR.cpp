@@ -38,7 +38,7 @@ ll nCr(ll n, ll r)
     
     while(n) N.push_back(n % mod), n /= mod;
     
-    while(k) K.push_back(k % mod), k /= mod;
+    while(r) K.push_back(r % mod), r /= mod;
     
     ll ret = 1;
     
