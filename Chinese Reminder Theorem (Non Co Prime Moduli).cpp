@@ -1,4 +1,4 @@
-struct crt
+struct CRT
 {
     ll n;
     vector < ll > m, r;
