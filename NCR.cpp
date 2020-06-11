@@ -1,3 +1,24 @@
+// when mod is not prime
+
+ll ncr[1001][1001];
+
+ll nCr(ll n, ll r)
+{
+	if(r == 1) return n;
+
+	if(n == r) return 1;
+
+	ll &ret = ncr[n][r];
+
+	if(ret != -1) return ret;
+
+	ret = nCr(n - 1,r) + nCr(n - 1, r - 1);
+
+	return ret = (ret % mod);
+}
+
+// when mod is prime
+
 const ll sz = 300000;
 
 ll fact[sz + 10];
