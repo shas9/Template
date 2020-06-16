@@ -5,7 +5,7 @@ struct scc
 
     vector < vector < ll > > g, rg;
     vector < ll > compno;
-    vector < bool > vis1;
+    vector < bool > vis;
     vector < ll > nodes;
 
     void init(ll _n)
@@ -15,17 +15,17 @@ struct scc
 		rg.assign(n + 10, {});
 		comp = 0;
 		compno.assign(n + 10, 0);
-		vis1.assign(n + 10, 0);
+		vis.assign(n + 10, 0);
 		nodes.clear();
     }
 
     void dfs1(ll node)
     {
-		vis1[node] = 1;
+		vis[node] = 1;
 
 		for(auto it: g[node])
 		{
-			if(vis1[it] == 0) dfs1(it);
+			if(vis[it] == 0) dfs1(it);
 		}
 
 		nodes.push_back(node);
@@ -51,7 +51,7 @@ struct scc
     {
 		for(ll i = 1; i <= n; i++)
 		{
-			if(vis1[i] == 0) dfs1(i);
+			if(vis[i] == 0) dfs1(i);
 		}
 
 		reverse(nodes.begin(),nodes.end());
