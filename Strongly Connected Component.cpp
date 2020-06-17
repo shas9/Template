@@ -1,4 +1,4 @@
-struct scc
+struct SCC
 {
     ll n;
     ll comp;
