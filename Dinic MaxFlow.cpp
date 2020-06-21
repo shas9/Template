@@ -70,7 +70,7 @@ namespace dinic
 				if(df > 0)
 				{
 					flow[e] += df;
-					flow[e ^ 1] = -df;
+					flow[e ^ 1] -= df;
 
 					return df;
 				}
