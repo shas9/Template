@@ -19,7 +19,7 @@ namespace dinic
 	}
 
 	// use init() before adding edge to set source, sink and number of nodes and resetting
-	void addedge(ll u, ll v, ll c, ll bi = 1) // bi = 0 for directed, bi = 1 for undirected
+	void addedge(ll u, ll v, ll c, ll bi = 0) // bi = 0 for directed, bi = 1 for undirected
 	{
 		edge_no[u][v] = nEdge;
 
