@@ -6,7 +6,6 @@ namespace dinic
 	ll src, snk, nNode, nEdge;
 	ll Q[maxn], last_edge[maxn], pro[maxn], dist[maxn];
 	ll flow[2 * maxe], cap[2 * maxe], prev_edge[2* maxe], to[2 * maxe];
-	ll edge_no[maxn][maxn];
 
 	void init(ll _src, ll _snk, ll _n)
 	{
@@ -21,8 +20,6 @@ namespace dinic
 	// use init() before adding edge to set source, sink and number of nodes and resetting
 	void addedge(ll u, ll v, ll c, ll bi = 0) // bi = 0 for directed, bi = 1 for undirected
 	{
-		edge_no[u][v] = nEdge;
-
 		to[nEdge] = v, cap[nEdge] = c, flow[nEdge] = 0, prev_edge[nEdge] = last_edge[u], last_edge[u] = nEdge++;
 		to[nEdge] = u, cap[nEdge] = (bi == 1? c:0), flow[nEdge] = 0, prev_edge[nEdge] = last_edge[v], last_edge[v] = nEdge++;
 	}
