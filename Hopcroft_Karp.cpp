@@ -17,7 +17,7 @@ namespace hkarp
 		fill(last, last + LeftNodesNo + 1, -1);
 	}
 
-	void add_edge(ll u, ll v)
+	void addedge(ll u, ll v)
 	{
 		to[edges] = v;
 		previous[edges] = last[u];
