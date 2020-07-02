@@ -28,8 +28,8 @@ namespace fft
 	const double PI = acos(-1);
 
 	const int N = 1e6;
-	const int L = (1 << 17);
-	const int LG = 17;
+	int L = (1 << 17);
+	int LG = 17;
 
 	_complex f[N];
 	int a[N], b[N], res[N], rev[N];
