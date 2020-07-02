@@ -32,8 +32,7 @@ namespace fft
 	const int LG = 17;
 
 	_complex f[N];
-	int a[N], rev[N];
-	int pref[N], active[N];
+	int a[N], b[N], res[N], rev[N];
 	_complex power[2][20][N];
 
 	void process (void)
