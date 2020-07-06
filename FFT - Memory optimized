@@ -1,5 +1,4 @@
 typedef complex<double> CD;
-typedef long long LL;
 const double PI = acos(-1);
 
 struct FFT
@@ -49,7 +48,7 @@ struct FFT
             for (CD &x : v) x/=N;
     }
 
-    vector<LL> multiply(vector<LL> a, vector<LL> b) {
+    vector<int> multiply(vector<int> a, vector<int> b) {
         vector<CD> fa(a.begin(), a.end()), fb(b.begin(), b.end());
 
         int n = 1;
@@ -62,7 +61,7 @@ struct FFT
         for (int i=0; i<n; i++) fa[i] *= fb[i];
         fft(fa, true);
 
-        vector<LL> ans(n);
+        vector<int> ans(n);
         for (int i=0; i<n; i++)
             ans[i] = round(fa[i].real());
         return ans;
