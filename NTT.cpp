@@ -23,7 +23,7 @@ If required mod is not above, use nttdata function OFFLINE
 using namespace std;
  
  
-namespace NTT {
+namespace ntt {
     int N;
     vector<int> perm;
     vector<int>wp[2][30];
