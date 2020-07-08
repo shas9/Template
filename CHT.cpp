@@ -18,11 +18,12 @@ struct line
 struct CHT
 {
 	vector < line > vec;
-	ll t;
+	ll t, ptr;
 
 	void init(ll x)
 	{
 		t = x;
+		ptr = 0;
 		vec.clear();
 	}
 
@@ -64,7 +65,10 @@ struct CHT
 
     ll ask(ll x) // ternary search
     {
-		if(vec.empty()) return 0;
+		if(vec.empty())
+		{
+			add(line(0,0));
+		}
 
         ll lo = 0;
         ll hi = vec.size() - 1;
@@ -108,5 +112,37 @@ struct CHT
         }
 
         return ret;
+    }
+
+    ll ask1(ll x) // pointer search (linear)
+    {
+		if(vec.empty())
+		{
+			add(line(0,0));
+		}
+
+		if(ptr >= vec.size()) ptr = vec.size() - 1;
+
+		while(ptr < (vec.size() - 1))
+		{
+			if(t & 1)
+			{
+				if(func(ptr,x) > func(ptr + 1,x))
+				{
+					ptr++;
+				}
+				else break;
+			}
+			else
+			{
+				if(func(ptr,x) < func(ptr + 1,x))
+				{
+					ptr++;
+				}
+				else break;
+			}
+		}
+
+		return func(ptr,x);
     }
 };
