@@ -27,7 +27,7 @@ struct CHT
 		vec.clear();
 	}
 
-	ll func(ll idx, ll x)
+	inline ll func(ll idx, ll x)
 	{
 		ll ret = vec[idx].m * x + vec[idx].c;
 
