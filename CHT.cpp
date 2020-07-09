@@ -9,12 +9,6 @@ struct line
     }
 };
 
-
-// 1 = mi > mi+1, mn
-// 2 = mi > mi+1, mx
-// 3 = mi < mi+1, mn
-// 4 = mi < mi+1, mx
-
 struct CHT
 {
 	vector < line > vec;
@@ -146,3 +140,8 @@ struct CHT
 		return func(ptr,x);
     }
 };
+
+// 1 = mi > mi+1, mn
+// 2 = mi > mi+1, mx
+// 3 = mi < mi+1, mn
+// 4 = mi < mi+1, mx
