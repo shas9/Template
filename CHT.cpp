@@ -61,7 +61,7 @@ struct CHT
     {
 		if(vec.empty())
 		{
-			add(line(0,0));
+			return 0;
 		}
 
         ll lo = 0;
@@ -112,7 +112,7 @@ struct CHT
     {
 		if(vec.empty())
 		{
-			add(line(0,0));
+			return 0;
 		}
 
 		if(ptr >= vec.size()) ptr = vec.size() - 1;
