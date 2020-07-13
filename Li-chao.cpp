@@ -7,6 +7,9 @@ struct Lichao
 {
     vector < Line > tree;
     vector < ll > pnt;
+    vector < ll > current;
+    ll state;
+
     ll n;
     ll type;
 
@@ -23,6 +26,11 @@ struct Lichao
         tree.clear();
         tree.resize(4 * (n + 5));
 
+        current.clear();
+        current.resize((n + 5));
+
+        state = 1;
+
         type = _t; // 1 = maximum, 2 = minimum
 
         if(type & 1) for(ll i = 0; i < tree.size(); i++) tree[i] = {0,mnlld};
@@ -36,6 +44,12 @@ struct Lichao
 
     void add1(ll lo, ll hi, Line line, ll node)
     {
+		if(current[node] != state)
+		{
+			tree[node] = {0,mnlld};
+			current[node] = state;
+ 		}
+
         if(lo == hi)
         {
             if(f(line, pnt[lo]) > f(tree[node], pnt[lo]))
@@ -56,6 +70,12 @@ struct Lichao
 
     void add2(ll lo, ll hi, Line line, ll node)
     {
+		if(current[node] != state)
+		{
+			tree[node] = {0,mxlld};
+			current[node] = state;
+ 		}
+
         if(lo == hi)
         {
             if(f(line, pnt[lo]) < f(tree[node], pnt[lo]))
@@ -91,8 +111,10 @@ struct Lichao
 
         ll mid = (lo+hi) >> 1, ret = f(tree[node], pnt[idx]);
 
-        if(idx <= mid) return max(ret, query1(lo, mid, idx, node<<1));
-        else return max(ret, query1(mid+1, hi, idx, node<<1 | 1));
+        if(idx <= mid && current[node << 1] == state) return max(ret, query1(lo, mid, idx, node<<1));
+        else if(idx > mid && current[node << 1 | 1] == state) return max(ret, query1(mid+1, hi, idx, node<<1 | 1));
+
+        return ret;
     }
 
     ll query2(ll lo, ll hi, ll idx, ll node)
@@ -102,8 +124,10 @@ struct Lichao
 
         ll mid = (lo+hi) >> 1, ret = f(tree[node], pnt[idx]);
 
-        if(idx <= mid) return min(ret, query2(lo, mid, idx, node<<1));
-        else return min(ret, query2(mid+1, hi, idx, node<<1 | 1));
+        if(idx <= mid && current[node << 1] == state)return min(ret, query2(lo, mid, idx, node<<1));
+        else if(idx > mid && current[node << 1 | 1] == state) return min(ret, query2(mid+1, hi, idx, node<<1 | 1));
+
+        return ret;
     }
 
     ll ask(ll x)
@@ -114,3 +138,4 @@ struct Lichao
         else return query2(0,n,pos,1);
     }
 };
+
