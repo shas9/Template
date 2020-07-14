@@ -16,6 +16,7 @@ struct LineContainer : multiset<Line, less<>> {
 		return x->p >= y->p;
 	}
 	void add(ll k, ll m) {
+		/// k *= -1, m *= -1 // for min
 		auto z = insert({k, m, 0}), y = z++, x = y;
 		while (isect(y, z)) z = erase(z);
 		if (x != begin() && isect(--x, y)) isect(x, y = erase(y));
@@ -25,6 +26,7 @@ struct LineContainer : multiset<Line, less<>> {
 	ll query(ll x) {
 		assert(!empty());
 		auto l = *lower_bound(x);
-		return l.k * x + l.m;
+		ll ret = l.k * x + l.m; 
+		return ret; // ret *= -1 for minimum
 	}
 };
