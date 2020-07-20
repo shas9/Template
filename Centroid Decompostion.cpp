@@ -4,7 +4,7 @@ ll cenpar[mx];
 ll sz[mx];
 bool done[mx];
 ll dist[mx];
-ll n, k, ans;
+ll n, ans;
 
 vector < ll > g[mx];
 
