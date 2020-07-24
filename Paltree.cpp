@@ -23,6 +23,7 @@ void init()
 
 void extend(ll p)
 {
+	if(p == 1) init();
     while(s[p - len[t] - 1] != s[p]) t = link[t];
 
     ll x = link[t];
