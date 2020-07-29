@@ -1,8 +1,8 @@
 const ll MAX_N = 1e6+10, mod = 2e9+63, base1 = 1e9+21, base2 = 1e9+181;
 char s[MAX_N];  // 1-indexed
-ll pw1[MAX_N], pw2[MAX_N], slen;
+ll pw1[MAX_N], pw2[MAX_N];
  
-void pw_calc() {
+void precalc() {
     pw1[0] = pw2[0] = 1;
     for(int i = 1; i < MAX_N; i++) {
         pw1[i] = (pw1[i-1] * base1) % mod;
@@ -13,7 +13,7 @@ void pw_calc() {
 struct Hash {
     ll h1[MAX_N], h2[MAX_N];
  
-    void init() {
+    void init(ll slen) {
         h1[0] = h2[0] = 0;
         for(int i = 1; i <= slen; i++) {
             h1[i] = (h1[i-1] * base1 + s[i]) % mod;
