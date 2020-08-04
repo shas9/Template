@@ -1,6 +1,5 @@
-
-const ll msz = 2;
-const ll mod = ---;
+const ll msz = 15;
+const ll mod = 1000000007;
 struct matexpo
 {
     ll mat[msz][msz];
@@ -9,9 +8,14 @@ struct matexpo
 
     ll cn = msz, rn = msz;
 
+    matexpo()
+    {
+        for(ll i = 0; i < msz; i++) for(ll j = 0; j < msz; j++) mat[i][j] = 0;
+	}
+
     void mult(ll p)
     {
-		for(ll i = 0; i < rn; i++) for(ll j = 0; j < cn; j++) tmp[i][j] = res[i][j];
+        for(ll i = 0; i < rn; i++) for(ll j = 0; j < cn; j++) tmp[i][j] = res[i][j];
 
         for(ll i = 0; i < rn; i++)
         {
@@ -27,7 +31,7 @@ struct matexpo
 
         if(p & 1)
         {
-			for(ll i = 0; i < rn; i++) for(ll j = 0; j < cn; j++) tmp[i][j] = res[i][j];
+            for(ll i = 0; i < rn; i++) for(ll j = 0; j < cn; j++) tmp[i][j] = res[i][j];
             for(ll i = 0; i < rn; i++)
             {
                 for(ll j = 0; j < cn; j++)
@@ -44,13 +48,13 @@ struct matexpo
 
     void expo(ll pwr)
     {
-        if(pwr == 0)
+        if(pwr == 1)
         {
             for(ll i = 0; i < rn; i++)
             {
                 for(ll j = 0; j < cn; j++)
                 {
-					res[i][j] = (i == j); // identity matrix
+                    res[i][j] = mat[i][j]; // identity matrix
                 }
             }
 
