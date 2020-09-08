@@ -1,69 +1,90 @@
-ll arr[mx];
-ll tree[mx*3];
+const ll N = 100005;
+ll arr[N];
 
-void init(ll node, ll b, ll e)
+struct segtree
 {
-    if(b == e)
+    ll tree[N * 4];
+    ll n;
+
+    void treeinit(ll node, ll b, ll e)
     {
-        tree[node] = arr[b];
-        return;
+        if(b == e)
+        {
+            tree[node] = arr[b];
+            return;
+        }
+
+        ll left = node * 2;
+        ll right = (node * 2) + 1;
+        ll mid = (b + e) / 2;
+
+        treeinit(left, b, mid);
+        treeinit(right, mid + 1, e);
+
+        tree[node] = tree[left] + tree[right];
     }
 
-    ll left = node * 2;
-    ll right = (node * 2) + 1;
-    ll mid = (b + e) / 2;
-
-    init(left, b, mid);
-    init(right, mid + 1, e);
-
-    tree[node] = tree[left] + tree[right];
-
-
-}
-
-void update(ll node, ll b, ll e, ll i, ll val)
-{
-    if(i > e || i < b)
+    void init(ll _n)
     {
-        return;
+        n = _n;
+
+        memset(tree,0,sizeof tree);
+        treeinit(1,1,n);
     }
 
-    if(b == i && e == i)
+    void treeupdate(ll node, ll b, ll e, ll i, ll val)
     {
-        tree[node] = val;
-        return;
+        if(i > e || i < b)
+        {
+            return;
+        }
+
+        if(b == i && e == i)
+        {
+            tree[node] = val;
+            return;
+        }
+
+        ll left = node * 2;
+        ll right = (node * 2) + 1;
+        ll mid = (b + e) / 2;
+
+        treeupdate(left, b, mid, i, val);
+        treeupdate(right, mid + 1, e, i, val);
+
+        tree[node] = tree[left] + tree[right];
     }
 
-    ll left = node * 2;
-    ll right = (node * 2) + 1;
-    ll mid = (b + e) / 2;
-
-    update(left, b, mid, i, val);
-    update(right, mid + 1, e, i, val);
-
-    tree[node] = tree[left] + tree[right];
-}
-
-ll sum(ll node, ll b, ll e, ll i, ll j)
-{
-    if(i > e || j < b)
+    void update(ll i, ll val)
     {
-        return 0;
+        treeupdate(1,1,n,i,val);
     }
 
-    if(b >= i && e <= j)
+    ll treequery(ll node, ll b, ll e, ll i, ll j)
     {
-        return tree[node];
+        if(i > e || j < b)
+        {
+            return 0;
+        }
+
+        if(b >= i && e <= j)
+        {
+            return tree[node];
+        }
+
+        ll left = node * 2;
+        ll right = (node * 2) + 1;
+        ll mid = (b + e) / 2;
+
+        ll p1 = treequery(left, b, mid, i, j);
+        ll p2 = treequery(right, mid + 1, e,i, j);
+
+        return p1 + p2;
     }
 
-    ll left = node * 2;
-    ll right = (node * 2) + 1;
-    ll mid = (b + e) / 2;
+    ll query(ll x, ll y)
+    {
+        return treequery(1,1,n,x,y);
+    }
 
-    ll p1 = sum(left, b, mid, i, j);
-    ll p2 = sum(right, mid + 1, e,i, j);
-
-    return p1 + p2;
-
-
-}
+};
