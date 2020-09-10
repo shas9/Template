@@ -19,4 +19,4 @@ struct BIT
                     idx += idx & (-idx);
               }
        }
-}
+};
