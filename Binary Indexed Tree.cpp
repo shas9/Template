@@ -1,6 +1,15 @@
 struct BIT
 {
-       ll tree[mx];
+       vector < ll > tree;
+       ll n;
+
+       BIT(ll n) : n(n), tree(n + 3, 0) {}
+
+       void init()
+       {
+			tree.assign(n + 3, 0);
+       }
+
        ll query(ll idx)
        {
               ll sum=0;
@@ -11,7 +20,7 @@ struct BIT
               return sum;
        }
 
-       void update(ll idx, ll x, ll n) //n is the size of the array, x is the number to add
+       void update(ll idx, ll x) //n is the size of the array, x is the number to add
        {
               while(idx<=n)
               {
@@ -19,4 +28,4 @@ struct BIT
                     idx += idx & (-idx);
               }
        }
-};
+} bit(300002);
