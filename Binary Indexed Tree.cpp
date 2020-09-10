@@ -7,7 +7,7 @@ struct BIT
 
        void init()
        {
-			tree.assign(n + 3, 0);
+	      tree.assign(n + 3, 0);
        }
 
        ll query(ll idx)
