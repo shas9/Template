@@ -1,4 +1,4 @@
-ll calphi(ll m)
+ll calphi(ll mm)
 {
 	double res = mm;
 
@@ -13,5 +13,5 @@ ll calphi(ll m)
 
 	if(mm > 1) res *= (1.0 - (1.0 / mm));
 
-	return phi = (long long)res;
+	return (long long)res;
 }
