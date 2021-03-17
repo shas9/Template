@@ -80,3 +80,19 @@ void precalc()
         fact[i] = (i * fact[i - 1]) % mod;
     }
 }
+
+
+//for small r
+
+ll nCr(ll n, ll k)
+{
+    if(k > n) assert(0);
+
+    ll ret = 1;
+
+    for(ll i = (n - k + 1); i <= n; i++) ret = (ret * i) % mod;
+
+    for(ll i = 2; i <= k; i++) ret = (ret * power(i, mod - 2, mod)) % mod;
+
+    return ret;
+}
