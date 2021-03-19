@@ -1,35 +1,14 @@
-const ll N = 100005;
-ll arr[N];
-
 struct segtree
 {
-    ll tree[N * 4];
+
     ll n;
+    vector < ll > tree;
 
-    void treeinit(ll node, ll b, ll e)
-    {
-        if(b == e)
-        {
-            tree[node] = arr[b];
-            return;
-        }
-
-        ll left = node * 2;
-        ll right = (node * 2) + 1;
-        ll mid = (b + e) / 2;
-
-        treeinit(left, b, mid);
-        treeinit(right, mid + 1, e);
-
-        tree[node] = tree[left] + tree[right];
-    }
 
     void init(ll _n)
     {
         n = _n;
-
-        memset(tree,0,sizeof tree);
-        treeinit(1,1,n);
+        tree.assign(4 * n,0);
     }
 
     void treeupdate(ll node, ll b, ll e, ll i, ll val)
@@ -52,7 +31,7 @@ struct segtree
         treeupdate(left, b, mid, i, val);
         treeupdate(right, mid + 1, e, i, val);
 
-        tree[node] = tree[left] + tree[right];
+        tree[node] = (tree[left] + tree[right]) % mod;
     }
 
     void update(ll i, ll val)
@@ -79,7 +58,7 @@ struct segtree
         ll p1 = treequery(left, b, mid, i, j);
         ll p2 = treequery(right, mid + 1, e,i, j);
 
-        return p1 + p2;
+        return (p1 + p2) % mod;
     }
 
     ll query(ll x, ll y)
