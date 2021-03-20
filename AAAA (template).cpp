@@ -1,6 +1,6 @@
-// God put a smile upon your face <3 
+ // God put a smile upon your face <3 
 
-#include <bits/stdc++.h>`
+#include <bits/stdc++.h>
 
 #define slld(longvalue) scanf("%lld", &longvalue)
 
@@ -21,10 +21,6 @@
 #define mnd -2e8
 
 #define pi 3.14159265359
-
-#define mod 958585860497
-
-#define base 2001487
 
 using namespace std;
 
