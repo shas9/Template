@@ -31,7 +31,7 @@ struct segtree
         treeupdate(left, b, mid, i, val);
         treeupdate(right, mid + 1, e, i, val);
 
-        tree[node] = (tree[left] + tree[right]) % mod;
+        tree[node] = (tree[left] + tree[right]);
     }
 
     void update(ll i, ll val)
@@ -58,7 +58,7 @@ struct segtree
         ll p1 = treequery(left, b, mid, i, j);
         ll p2 = treequery(right, mid + 1, e,i, j);
 
-        return (p1 + p2) % mod;
+        return (p1 + p2);
     }
 
     ll query(ll x, ll y)
