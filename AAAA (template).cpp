@@ -1,11 +1,10 @@
- // God put a smile upon your face <3 
+ // Lights will guide you home
 
 #include <bits/stdc++.h>
 
 #define slld(longvalue) scanf("%lld", &longvalue)
 
 #define ll long long
-#define ull unsigned long long
 #define pll pair < long long, long long >
 
 #define fastio ios_base:: sync_with_stdio(false); cin.tie(0); cout.tie(0)
@@ -16,11 +15,6 @@
 
 #define mxlld LLONG_MAX
 #define mnlld -LLONG_MAX
-
-#define mxd 2e8
-#define mnd -2e8
-
-#define pi 3.14159265359
 
 using namespace std;
 
@@ -36,9 +30,9 @@ ll Set(ll n, ll pos)
 
 int main()
 {
-    ll i, j, k, l, m, n, o, r, q;
+    ll i, j, k, l, m, n, r, q;
     ll testcase;
-    ll input, flag, tag, ans;
+    ll in, ans;
 
 //    freopen("input.txt", "r", stdin);
 
