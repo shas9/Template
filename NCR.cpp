@@ -4,8 +4,8 @@ ll ncr[1001][1001];
 
 ll nCr(ll n, ll r)
 {
+	if(r == 0) return 1;
 	if(r == 1) return n;
-
 	if(n == r) return 1;
 
 	ll &ret = ncr[n][r];
