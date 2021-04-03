@@ -9,9 +9,7 @@
 
 #define fastio ios_base:: sync_with_stdio(false); cin.tie(0); cout.tie(0)
 
-#define pb push_back
-
-#define bug printf("BUG\n")
+#define bug(x) printf("BUG %lld\n", x)
 
 #define mxlld LLONG_MAX
 #define mnlld -LLONG_MAX
@@ -38,7 +36,7 @@ int main()
 
 //    freopen("output.txt", "w", stdout);
 
-    slld(testcase);
+    cin >> testcase;
 
     for(ll cs = 1; cs <= testcase; cs++)
     {
