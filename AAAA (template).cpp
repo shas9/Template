@@ -5,7 +5,7 @@
 #define slld(longvalue) scanf("%lld", &longvalue)
 
 #define ll long long
-#define pll pair < long long, long long >
+#define pll pair < ll, ll >
 
 #define fastio ios_base:: sync_with_stdio(false); cin.tie(0); cout.tie(0)
 
