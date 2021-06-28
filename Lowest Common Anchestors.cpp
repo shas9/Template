@@ -4,7 +4,7 @@ const ll N = 203;
 ll anc[N][K];
 ll depth[N];
 
-void setup(ll u, ll par) {
+void setup(ll u, ll par) { // setup(x,0); where x is the root
     depth[u] = depth[par]+1;
 
     memset(anc[u],0,sizeof anc[u]);
