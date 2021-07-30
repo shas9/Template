@@ -33,17 +33,17 @@ int main()
     ll testcase;
     ll in, ans;
 
-//    freopen("input.txt", "r", stdin);
+    #ifdef Has9
 
-//    freopen("output.txt", "w", stdout);
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+
+    #endif
 
     cin >> testcase;
-
+    
     for(ll cs = 1; cs <= testcase; cs++)
     {
 
     }
-
-
 }
-
